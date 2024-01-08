@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<div class="mx-3 ">
+    <h2 class="mb-3"> Error </h2>
+
+    <div class="alert alert-primary mb-3">
+        {{message}}
+    </div>
+
+    <div>
+    {% if redirect_url %}
+        <button class="btn btn-light btn-small"><a style="text-decoration: none;" href="{{ redirect_url }}"> go back </a></button> 
+    {% endif %}
+    </div>
+    
+</div>
+
+{% endblock %}

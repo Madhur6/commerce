@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2> Watchlist </h2>
+
+    <div class="row mx-3 my-3">
+      {% for listing in listings %}
+      <div class="card mx-3 my-3 shadow-sm rounded" style="width: 18rem;">
+        {% if listing.image_url %}
+        <img class="card-img-top img-fluid" src="{{ listing.image_url }}" alt="{{ listing.title }}" style="height: 200px; object-fit: contain;">
+        {% else %}
+        <div class="placeholder-image" style="height: 200px; background-color: #ccc; display: flex; justify-content: center; align-items: center;">
+            <span>No Image</span>
+        </div>
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title"> {{listing.title}} </h5>
+          <p class="card-text overflow-hidden"> {{listing.description|truncatechars:45}} </p>
+          <h6> price: ${{listing.price}} </h6>
+          <p class="text-muted small"> {{listing.updated_at|date:"M. d, Y H:i" }} </p>
+          <div class="mt-auto d-flex justify-content-center">
+            <a href="{% url 'go_to_listing' id=listing.id %}" class="btn btn-primary center btn-sm mt-3"> details </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  
+{% endblock %}

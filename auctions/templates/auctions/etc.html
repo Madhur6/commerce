@@ -1,0 +1,40 @@
+<!-- <h4 class="mt-4"> Comments </h4>
+<div class="card">
+    {% for comment in comments %}
+    <div class="card-body">
+        <div>
+            <strong class="text-small text-muted"> by {{comment.user.username}}: </strong>
+        </div>
+        <p class="card-text"> {{comment.comment_text}}. </p>
+        <p class="text-muted small"> {{comment.comment_time|date:"M. d, Y H:i" }} </p>
+    </div>
+    {% empty %}
+    <div class="card-body">
+        <p class="card-text text-muted"> no comments </p>
+    </div>
+    {% endfor %}
+</div> -->
+
+
+<!-- <div class="card-body mx-2 mt-4">
+    <h6 class="card-title"> Comments </h6>
+    <ul>
+        {% for comment in comments %}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="" style="width:110px;">
+                    <strong class="small"> by {{ comment.user.username }}:</strong>
+                </div>
+                <div class="col-md-6">
+                    {{ comment.comment_text }}
+                </div>
+                <div class="col-md-12 text-right">
+                    <span class="text-muted small">{{ comment.comment_time|date:"F d, Y H:i" }}</span>
+                </div>
+            </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item"> no comments </li>
+        {% endfor %}
+    </ul>
+</div> -->

@@ -1,0 +1,62 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2 class="mb-3"> Create your Listings </h2>
+
+    {% if message %}
+    <div> {{message}} </div>
+    {% endif %}
+
+    <div class="mt-4">
+        <form action="{% url 'new_listing' %}" method="post">
+
+            {% csrf_token %}
+            <div class="form-group d-flex flex-row">
+                <div style="width:120px;">
+                    <label for="title"> title: </label>
+                </div>
+                <div>
+                    <input type="text" name="title" id="title" placeholder="Title" class="form-control" autofocus autocomplete="off" required>
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row">
+                <div style="width:120px;">
+                    <label for="description"> Description: </label>
+                </div>
+                <div>
+                    <textarea name="description" id="description" placeholder="description" class="form-control" rows="3" cols="40" required autocomplete="off" ></textarea>
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row">
+                <div style="width:120px;">
+                    <label for="price"> price: </label>
+                </div>
+                <div>
+                    <input type="number" name="price" id="price" placeholder="price" class="form-control" required autocomplete="off" >
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row">
+                <div style="width:120px;">
+                <label for="image_url"> image-url: </label>
+                </div>
+                <div>
+                    <input type="url" name="image_url" id="image_url" placeholder="image url" class="form-control" autocomplete="off" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <select class="my-3" name="category">
+                    <option disabled selected value=""> select </option>
+                    {% for category in categories %}
+                    <option value="{{category}}"> {{category}} </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success"> create </button>
+        </form>
+    </div>
+{% endblock %}
